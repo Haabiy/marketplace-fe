@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { useAuth } from './AuthWrapper'; 
+
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
@@ -14,6 +17,7 @@ function LoginPage() {
           password: password
       })
       .then(response => {
+          login(username, password);
           // Handle successful login (e.g., store token in localStorage)
           navigate('/dashboard');
       })

@@ -8,27 +8,37 @@ const ListSource = () => {
     const [error, setError] = useState(null);
   
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get('http://localhost:8000/api/read-source/');
-          setData(response.data);
-          //console.log(response.data)
-        } catch (error) {
-          console.error('Error fetching data:', error);
-          setError(error);
+      const fetchAuthenticatedData = async () => {
+        // Retrieve username and possibly token from your authenticated session
+        const username = sessionStorage.getItem('username'); // Example using session storage
+        const password = sessionStorage.getItem('password'); // Example using local storage
+
+        if (username && password) {
+          const authHeader = `Basic ${btoa(`${username}:${password}`)}`;
+  
+          try {
+            const response = await axios.get('http://localhost:8000/api/read-source/', {
+              headers: {
+                Authorization: authHeader,
+              },
+            });
+            setData(response.data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setError(error);
+          }
+        } else {
+          console.error('No authentication credentials found.');
         }
       };
   
-      fetchData();
+      fetchAuthenticatedData();
     }, []);
   
     if (error) {
         return <NetworkError retry={() => window.location.reload()} />;
     }
   
-    if (!data.length) {
-      return <div></div>;
-    }
   return (
         <>
         <PersistentDrawerLeft/>

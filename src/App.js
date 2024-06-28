@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Dashboard from './Window.jsx'; 
 import LoginPage from './Login.jsx';
 import ListSource from './ListSource.jsx';
+import { AuthProvider } from './AuthWrapper.jsx';
 
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
     <Routes>
         <Route path="/" element={<LoginPage />} />
@@ -15,16 +17,8 @@ function App() {
         <Route path="/list-source" element={<ListSource />} /> {/* Route for ListSource */}
     </Routes>
 </Router>
+</AuthProvider>
   );
 }
-
-
-
-
-
-
-
-//////To create for xxl screen
-
 
 export default App;
