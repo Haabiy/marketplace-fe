@@ -1,26 +1,25 @@
 import DataUpdateStatus from './Homepage.jsx';
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
 import NetworkError from './NetworkError.jsx';
+import axiosInstance from './axiosInstance.jsx';
 
 function DataLibrary(){
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/data-library/');
-        setData(response.data);
-        //console.log(response.data)
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setError(error);
-      }
+    const fetchAuthenticatedData = async () => {
+        try {
+            const response = await axiosInstance.get('/data-library/');
+            setData(response.data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            setError(error);
+        }
     };
 
-    fetchData();
-  }, []);
+    fetchAuthenticatedData();
+}, []);
 
   if (error) {
       return <NetworkError retry={() => window.location.reload()} />;

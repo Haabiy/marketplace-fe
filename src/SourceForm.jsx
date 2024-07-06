@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { XIcon } from '@heroicons/react/outline';
+import axiosInstance from './axiosInstance';
 
 const SourceForm = ({ isEditMode, source }) => {
   // If there is a date filled out then, make it appear while editing the form otherwise it is an empty data so, use next_status.
@@ -81,21 +81,9 @@ const SourceForm = ({ isEditMode, source }) => {
         }
       });
 
-      if(isEditMode){
-        await axios.put(`http://localhost:8000/api/update-source/${source.id}/`, formPayload, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-      }
-      else{
-        await axios.post('http://localhost:8000/api/add-source/', formPayload, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-        //console.log(response.data)
-      }
+      if(isEditMode){await axiosInstance.put(`/update-source/${source.id}/`, formPayload);}
+      else{await axiosInstance.post('/add-source/', formPayload);}
+
       // Optionally handle success, e.g., show a success message or redirect
       setShowForm(false);
       window.location.reload();

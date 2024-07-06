@@ -1,21 +1,34 @@
+import axios from "axios";
 import React, { useEffect, useState } from 'react';
-import AddedSource from './AddDataSource.jsx'; 
-import PersistentDrawerLeft from './Window.jsx'; 
-import NetworkError from "./NetworkError.jsx";
-import axiosInstance from "./axiosInstance.jsx";
-
+import AddedSource from '../AddDataSource.jsx'; // Import your AddedSource component
+import PersistentDrawerLeft from '../Window.jsx'; // Assuming you have a Dashboard component
+import NetworkError from "../NetworkError.jsx";
 const ListSource = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
   
     useEffect(() => {
       const fetchAuthenticatedData = async () => {
-        try {
-          const response = await axiosInstance.get('/read-source/');
-          setData(response.data);
-        } catch (error) {
-          console.error('Error fetching data:', error);
-          setError(error);
+        // Retrieve username and possibly token from your authenticated session
+        const username = sessionStorage.getItem('username'); 
+        const password = sessionStorage.getItem('password'); 
+
+        if (username && password) {
+          const authHeader = `Basic ${btoa(`${username}:${password}`)}`;
+  
+          try {
+            const response = await axios.get('http://localhost:8000/api/read-source/', {
+              headers: {
+                Authorization: authHeader,
+              },
+            });
+            setData(response.data);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setError(error);
+          }
+        } else {
+          console.error('No authentication credentials found.');
         }
       };
   

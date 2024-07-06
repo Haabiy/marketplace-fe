@@ -1,30 +1,39 @@
 import React, { createContext, useState, useContext } from 'react';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(() => {
-    const savedAuth = sessionStorage.getItem('auth');
-    return savedAuth ? JSON.parse(savedAuth) : null;
+  const [IsAuthenticated, setIsAuthenticated] = useState(() => {
+    return !!sessionStorage.getItem('IsAuthenticated');
   });
 
-  const login = (username, password) => {
-    const authData = { username, password };
-    setAuth(authData);
-    sessionStorage.setItem('auth', JSON.stringify(authData));
-    sessionStorage.setItem('username', username);
-    sessionStorage.setItem('password', password);
+  const login = async (username, password) => {
+    try {
+      const response = await axios.post('http://localhost:8000/api/login/', { username, password }, { withCredentials: true });
+      if (response.data.message) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('IsAuthenticated', 'true');
+      }
+    } catch (error) {
+      console.error('Login failed', error);
+    }
   };
 
-  const logout = () => {
-    setAuth(null);
-    sessionStorage.removeItem('auth');
-    sessionStorage.removeItem('username');
-    sessionStorage.removeItem('password');
+  const logout = async () => {
+    try {
+      const response = await axios.post('http://localhost:8000/api/logout/', {}, { withCredentials: true });
+      if (response.data.message) {
+        setIsAuthenticated(false);
+        sessionStorage.removeItem('IsAuthenticated');
+      }
+    } catch (error) {
+      console.error('Logout failed', error);
+    }
   };
 
   return (
-    <AuthContext.Provider value={{ auth, login, logout }}>
+    <AuthContext.Provider value={{ IsAuthenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import { useAuth } from './AuthWrapper'; 
-
+import axiosInstance from './axiosInstance';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -12,12 +11,10 @@ function LoginPage() {
 
   const handleLogin = (e) => {
       e.preventDefault()
-      axios.post('http://localhost:8000/api/login/', {
-          username: username,
-          password: password
-      })
+      axiosInstance.post('/login/', {username: username, password: password})
       .then(response => {
           login(username, password);
+          sessionStorage.setItem('IsAuthenticated', 'true'); 
           // Handle successful login (e.g., store token in localStorage)
           navigate('/dashboard');
       })

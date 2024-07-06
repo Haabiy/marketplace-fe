@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import SourceForm from './SourceForm';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import axiosInstance from './axiosInstance';
 
 function AddedSource(source) {
     const [editMode, setEditMode] = useState(false);
@@ -20,11 +20,9 @@ function AddedSource(source) {
         try {
             // If true activate else, deactivate.
             const action = clickVI ? 'activate' : 'deactivate';
-            await axios.put(`http://localhost:8000/api/${action}-source/${source.id}/`);
+            await axiosInstance.put(`/${action}-source/${source.id}/`);
             setClickVI(!clickVI); // Update state after API call
             console.log(!clickVI)
-            //console.log(`${action} source:`, response.data);
-            //window.location.reload();
         } catch (error) {
             console.error(`Error ${clickVI ? 'deactivating' : 'activating'} source:`, error);
         }
@@ -34,14 +32,12 @@ function AddedSource(source) {
     if (source.datadelivery_status === 'awaiting') {buttonBgColor = 'bg-orange-500'; } 
     else if (source.datadelivery_status === 'received') {buttonBgColor = 'bg-green-600'; } 
     else {buttonBgColor = 'bg-red-600'; }
-
+    
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:8000/api/delete-source/${source.id}/`);
+            const response = await axiosInstance.delete(`/delete-source/${source.id}/`);
             console.log('Delete response:', response.data);
             window.location.reload();
-            // Optionally handle success, e.g., show a success message or refresh data
-            // For example, redirect to another page or reload the data
         } catch (error) {
             console.error('Error deleting data:', error);
             // Optionally handle error, e.g., show an error message
