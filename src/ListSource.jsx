@@ -3,11 +3,12 @@ import AddedSource from './AddDataSource.jsx';
 import PersistentDrawerLeft from './Window.jsx'; 
 import NetworkError from "./NetworkError.jsx";
 import axiosInstance from "./axiosInstance.jsx";
-
+import { useNavigate } from 'react-router-dom';
 const ListSource = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
-  
+    const navigate = useNavigate()
+
     useEffect(() => {
       const fetchAuthenticatedData = async () => {
         try {
@@ -16,6 +17,7 @@ const ListSource = () => {
         } catch (error) {
           console.error('Error fetching data:', error);
           setError(error);
+          navigate('/')
         }
       };
   

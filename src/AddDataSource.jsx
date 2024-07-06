@@ -7,7 +7,6 @@ import axiosInstance from './axiosInstance';
 
 function AddedSource(source) {
     const [editMode, setEditMode] = useState(false);
-
     // set it false and use effect to change the value whenever there is a change in source.status column
     const [clickVI, setClickVI] = useState(false);
 
@@ -23,6 +22,7 @@ function AddedSource(source) {
             await axiosInstance.put(`/${action}-source/${source.id}/`);
             setClickVI(!clickVI); // Update state after API call
             console.log(!clickVI)
+            console.log(sessionStorage)
         } catch (error) {
             console.error(`Error ${clickVI ? 'deactivating' : 'activating'} source:`, error);
         }

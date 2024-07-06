@@ -22,7 +22,7 @@ import Modal from '@mui/material/Modal';
 
 import React,{useState} from 'react';
 import johnson from './Assets/Johnson_and_Johnson_Logo.svg'
-import mine from './Assets/mine_mangabey_blue_green.svg'
+import ENIM from './Assets/ENIM.png'
 import SourceForm from './SourceForm.jsx';
 import DataLibrary from './DataLibrary.jsx';
 import { Link } from 'react-router-dom';
@@ -118,9 +118,9 @@ export default function PersistentDrawerLeft() {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <div className='flex flex-row gap-2'>
-              <div><img src={mine} alt="MINE" /></div>
-              <TimelineIcon/>
-              <div><img src={johnson} alt="JOHNSON JOHNSON" /></div>
+              <div><img src={ENIM} alt="ENIM" className='relative w-16 h-16 mb-2'/></div>
+              <TimelineIcon className='relative top-4 right-3'/>
+              <div><img src={johnson} alt="JOHNSON JOHNSON" className='relative top-4 right-2'/></div>
             </div>
           </Typography>
           <button 
