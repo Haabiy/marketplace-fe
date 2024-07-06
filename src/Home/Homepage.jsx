@@ -1,5 +1,5 @@
 import React from "react";
-import data_library from './Assets/data_library.svg'
+import data_library from '../Assets/data_library.svg'
 
 function DataUpdateStatus(x){
     return(

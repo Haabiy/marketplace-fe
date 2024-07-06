@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AddedSource from './AddDataSource.jsx'; 
-import PersistentDrawerLeft from './Window.jsx'; 
-import NetworkError from "./NetworkError.jsx";
-import axiosInstance from "./axiosInstance.jsx";
+import NetworkError from "../Error/NetworkError.jsx";
+import axiosInstance from "../Auth/axiosInstance.jsx";
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../SideBar.jsx';
+
 const ListSource = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
@@ -30,7 +31,7 @@ const ListSource = () => {
   
   return (
         <>
-        <PersistentDrawerLeft/>
+        <Sidebar/>
         <div className='flex justify-center items-center min-h-16 lg:-mt-42 xl:-mr-0 lg:-mr-96 xxl:-mt-60'>
         <div className='grid grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 xl:grid xl:grid-cols-4 xl:relative xl:right-5 xxl:grid xxl:grid-cols-5'>
         {data.map((x, index) => (

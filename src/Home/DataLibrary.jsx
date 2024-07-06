@@ -1,7 +1,7 @@
 import DataUpdateStatus from './Homepage.jsx';
 import React, {useState, useEffect} from 'react';
-import NetworkError from './NetworkError.jsx';
-import axiosInstance from './axiosInstance.jsx';
+import NetworkError from '../Error/NetworkError.jsx';
+import axiosInstance from '../Auth/axiosInstance.jsx';
 
 function DataLibrary(){
   const [data, setData] = useState([]);
@@ -24,13 +24,9 @@ function DataLibrary(){
   if (error) {
       return <NetworkError retry={() => window.location.reload()} />;
   }
-  
-  //if (!data.length) {
-    //return <div></div>;
-  //}
     return(
         <>
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center -mt-12'>
           <div className="flex justify-center items-center font-satoshi text-3xl relative top-16 mb-8 font-medium md">
             <div>Data Library Update Status</div>
             <div className="flex flex-row items-center relative right-0 bg-green-100 text-green-500 text-xs font-bold px-2.5 py-0.5 rounded-full dark:bg-white dark:text-green-300">

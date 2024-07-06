@@ -3,7 +3,7 @@ import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import SourceForm from './SourceForm';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import axiosInstance from './axiosInstance';
+import axiosInstance from '../Auth/axiosInstance';
 
 function AddedSource(source) {
     const [editMode, setEditMode] = useState(false);
@@ -22,7 +22,6 @@ function AddedSource(source) {
             await axiosInstance.put(`/${action}-source/${source.id}/`);
             setClickVI(!clickVI); // Update state after API call
             console.log(!clickVI)
-            console.log(sessionStorage)
         } catch (error) {
             console.error(`Error ${clickVI ? 'deactivating' : 'activating'} source:`, error);
         }
@@ -40,7 +39,6 @@ function AddedSource(source) {
             window.location.reload();
         } catch (error) {
             console.error('Error deleting data:', error);
-            // Optionally handle error, e.g., show an error message
         }};
     
     return (
@@ -55,7 +53,6 @@ function AddedSource(source) {
                         setClickVI(!clickVI);
                         handleActivation();
                         setEditMode(false); // Hide edit button when eye icon is clicked
-                        //{handleActivation()}
                     }}
                     >
                     {clickVI ? <VisibilityOffIcon size={14} /> : <VisibilityIcon size={14} />}

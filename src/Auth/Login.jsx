@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from './AuthWrapper'; 
-import axiosInstance from './axiosInstance';
+import { useAuth } from './AuthWrapper.jsx'; 
+import axiosInstance from './axiosInstance.jsx';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
