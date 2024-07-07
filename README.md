@@ -1,6 +1,6 @@
 # React.js Application
 
-This project is the frontend application for marketplace-be, a marketplace platform. It is built using React.js, ensuring compatibility with marketplace-be's backend API (use the same version release tags, e.g: v0.0.1 for both marketplace-fe(frontend) and marketplace-be(backend).
+This project is the frontend application for marketplace-be, https://github.com/Haabiy/marketplace-be, a marketplace platform. It is built using React.js, ensuring compatibility with marketplace-be's backend API (use the same version release tags, e.g: v0.0.1 for both marketplace-fe(frontend) and marketplace-be(backend).
 
 
 ## Setup
