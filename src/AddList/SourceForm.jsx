@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { XIcon } from '@heroicons/react/outline';
 import axiosInstance from '../Auth/axiosInstance';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 const SourceForm = ({ isEditMode, source }) => {
   // If there is a date filled out then, make it appear while editing the form otherwise it is an empty data so, use next_status.
@@ -68,6 +71,12 @@ const SourceForm = ({ isEditMode, source }) => {
   const handleFileChange = (e) => {
     setFormData({ ...formData, data_upload: e.target.files[0] });
   };
+
+  /*
+  const handleDateChange = (date, name) => {
+    setFormData({ ...formData, [name]: date });
+  };
+  */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -243,7 +252,6 @@ const SourceForm = ({ isEditMode, source }) => {
                       value={formData.current_update}
                       onChange={handleChange}
                       className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
-                      required
                     />
                   </div>
                   <div className="flex flex-col">
