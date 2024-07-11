@@ -1,14 +1,17 @@
-import DataUpdateStatus from './Homepage.jsx';
-import React, {useState, useEffect, useRef} from 'react';
+import DataUpdateStatus from '../Home/Homepage.jsx';
+import React, {useState, useEffect} from 'react';
 import NetworkError from '../Error/NetworkError.jsx';
+import axiosInstance from '../Auth/axiosInstance.jsx';
+import WebSocketInstance from '../WebSocket/Websocket.jsx';
 import WebSocketService from '../WebSocket/Websocket.jsx'; 
+import ListSource from '../AddList/ListSource.jsx';
 
-function DataLibrary(){
+function DataLibraryTest(){
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
   const wsUrl = 'ws://localhost:8000/ws/data_library/'
-  const WebSocketInstance = useRef(new WebSocketService()).current;
+  const WebSocketInstance = new WebSocketService();
 
   useEffect(() => {
     WebSocketInstance.connect(wsUrl);
@@ -21,6 +24,8 @@ function DataLibrary(){
       WebSocketInstance.close();
     };
   }, [wsUrl]);
+
+
 
   if (error) {
       return <NetworkError retry={() => window.location.reload()} />;
@@ -54,8 +59,9 @@ function DataLibrary(){
             ))}
           </div>
         </div>
+        <ListSource/>
         </>
     );
 }
 
-export default DataLibrary;
+export default DataLibraryTest;

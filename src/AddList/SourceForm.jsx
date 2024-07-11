@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { XIcon } from '@heroicons/react/outline';
 import axiosInstance from '../Auth/axiosInstance';
-import DatePicker from 'react-datepicker';
+//import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
@@ -95,7 +95,8 @@ const SourceForm = ({ isEditMode, source }) => {
 
       // Optionally handle success, e.g., show a success message or redirect
       setShowForm(false);
-      window.location.reload();
+      console.log('...')
+      //window.location.reload();
 
     } catch (error) {
       console.error('Error:', error);

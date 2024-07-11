@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import DataLibrary from './Home/DataLibrary.jsx';
-import SourceForm from './AddList/SourceForm.jsx';
 import TimelineIcon from '@mui/icons-material/Timeline';
+
 import ENIM from './Assets/ENIM-LOGO.png'; // Replace with the correct path
 import ENIMsingle from './Assets/Logo-Single.png'
 import johnson from './Assets/Johnson_and_Johnson_Logo.svg'; // Replace with the correct path
+
+import DataLibrary from './Home/DataLibrary.jsx';
+import SourceForm from './AddList/SourceForm.jsx';
+import ListSource from './AddList/ListSource.jsx';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -120,6 +123,7 @@ const Sidebar = () => {
         )}
         <div className="mt-10">
           <DataLibrary />
+          <ListSource/>
         </div>
       </div>
 

@@ -1,15 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 import SourceForm from './SourceForm';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axiosInstance from '../Auth/axiosInstance';
+import WebSocketService from '../WebSocket/Websocket';
 
 function AddedSource(source) {
     const [editMode, setEditMode] = useState(false);
     // set it false and use effect to change the value whenever there is a change in source.status column
     const [clickVI, setClickVI] = useState(false);
 
+    /*
     // sets inactive - true and active - false
     useEffect(() => {
         setClickVI(source.status === 'inactive'); // Set initial state based on source status
@@ -25,6 +27,36 @@ function AddedSource(source) {
         } catch (error) {
             console.error(`Error ${clickVI ? 'deactivating' : 'activating'} source:`, error);
         }
+    };
+    */
+
+    // Initialize WebSocketService for the path
+    const wsUrl = 'ws://localhost:8000/ws/data_source_activation/';
+    const WebSocketInstance = useRef(new WebSocketService()).current;
+    useEffect(() => {
+        WebSocketInstance.connect(wsUrl);
+        setClickVI(source.status === 'inactive'); // Set initial state based on source status
+
+        // Add WebSocket callback for data updates
+        WebSocketInstance.addCallbacks((data) => {
+            if (data.id === source.id) {
+                setClickVI(data.status === 'inactive');
+            }
+        });
+
+        return () => {
+            WebSocketInstance.close(); // Clean up WebSocket connection on unmount
+        };
+    }, [source.status]);
+
+    const handleActivation = () => {
+        const action = clickVI ? 'activate' : 'deactivate';
+        WebSocketInstance.socketRef.send(JSON.stringify({
+            action: action,
+            source_id: source.id,
+        }));
+        setClickVI(!clickVI); // Update state optimistically
+        console.log(!clickVI);
     };
 
     let buttonBgColor;
