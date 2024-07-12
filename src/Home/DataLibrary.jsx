@@ -23,7 +23,8 @@ function DataLibrary(){
   }, [wsUrl]);
 
   if (error) {
-      return <NetworkError retry={() => window.location.reload()} />;
+    setError(error)
+    return <NetworkError retry={() => window.location.reload()} />;
   }
     return(
         <>

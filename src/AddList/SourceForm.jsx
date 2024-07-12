@@ -129,61 +129,8 @@ const SourceForm = ({ isEditMode, source }) => {
 
   const closeForm = () => {
     setShowForm(false);
-    //window.location.reload();
   };
-
-
-  /*
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, data_upload: e.target.files[0] });
-  };
-
-  /*
-  const handleDateChange = (date, name) => {
-    setFormData({ ...formData, [name]: date });
-  };
-  */
-
-  /*
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const formPayload = new FormData();
-      Object.keys(formData).forEach((key) => {
-        if (formData[key] !== null) {
-          formPayload.append(key, formData[key]);
-          //console.log(formData[key]);
-        }
-      });
-
-      if(isEditMode){await axiosInstance.put(`/update-source/${source.id}/`, formPayload);}
-      else{await axiosInstance.post('/add-source/', formPayload);}
-
-      // Optionally handle success, e.g., show a success message or redirect
-      setShowForm(false);
-      console.log('...')
-      //window.location.reload();
-
-    } catch (error) {
-      console.error('Error:', error);
-      // Optionally handle error, e.g., show an error message
-    }
-  };
-
-  const closeForm = () => {
-    setShowForm(false);
-    window.location.reload();
-  };
-
-  */
   
-
   return (
     <>
     <div className="container mx-auto p-6">

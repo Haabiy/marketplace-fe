@@ -7,7 +7,6 @@ import WebSocketService from '../WebSocket/Websocket.jsx';
 const ListSource = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);
-    //const navigate = useNavigate()
     const wsUrl = 'ws://localhost:8000/ws/read_source/'
     const WebSocketInstance = useRef(new WebSocketService()).current;
 
@@ -34,7 +33,7 @@ const ListSource = () => {
         {data.map((x, index) => (
             <AddedSource
             key={index}
-            id={x.id} // to update the data
+            id={x.id} 
             title={x.country}
             data_vendor={x.data_vendor}
             panel={x.panel}

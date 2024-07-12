@@ -36,14 +36,16 @@ function AddedSource(source) {
             action: action,
             source_id: source.id,
         }));
-        setClickVI(!clickVI); // Update state optimistically
-        console.log(!clickVI);
+        setClickVI(!clickVI); 
     };
 
     let buttonBgColor;
-    if (source.datadelivery_status === 'awaiting') {buttonBgColor = 'bg-orange-500'; } 
-    else if (source.datadelivery_status === 'received') {buttonBgColor = 'bg-green-600'; } 
-    else {buttonBgColor = 'bg-red-600'; }
+    if (source.datadelivery_status === 'awaiting') 
+        {buttonBgColor = 'bg-orange-500'; } 
+    else if (source.datadelivery_status === 'received') 
+        {buttonBgColor = 'bg-green-600'; } 
+    else 
+        {buttonBgColor = 'bg-red-600'; }
     
     const handleDelete = async () => {
         try {
