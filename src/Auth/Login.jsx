@@ -16,7 +16,7 @@ function LoginPage() {
           login(username, password);
           sessionStorage.setItem('IsAuthenticated', 'true'); 
           // Handle successful login (e.g., store token in localStorage)
-          navigate('/dashboard');
+          navigate('/main');
       })
       .catch(error => {
           // Handle error (e.g., display error message)

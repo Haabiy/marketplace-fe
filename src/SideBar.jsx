@@ -65,19 +65,19 @@ const Sidebar = () => {
           <a href="/" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             Homepage
           </a>
-          <a href="/list-source" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             All Data Source
           </a>
-          <a href="/dashboard" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             Dashboard
           </a>
-          <a href="/list-source" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             Pending
           </a>
-          <a href="/list-source" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             In-Progress
           </a>
-          <a href="/list-source" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             Completed
           </a>
         </nav>

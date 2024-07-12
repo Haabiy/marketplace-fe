@@ -40,8 +40,6 @@ function AddedSource(source) {
         console.log(!clickVI);
     };
 
-    console.log(source)
-
     let buttonBgColor;
     if (source.datadelivery_status === 'awaiting') {buttonBgColor = 'bg-orange-500'; } 
     else if (source.datadelivery_status === 'received') {buttonBgColor = 'bg-green-600'; } 
