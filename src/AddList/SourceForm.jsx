@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { XIcon } from '@heroicons/react/outline';
-import axiosInstance from '../Auth/axiosInstance';
+//import axiosInstance from '../Auth/axiosInstance';
 //import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
 const SourceForm = ({ isEditMode, source }) => {
+  const ws = 'ws://localhost:8000/ws/source/'
+  const socket = new WebSocket(ws);
   // If there is a date filled out then, make it appear while editing the form otherwise it is an empty data so, use next_status.
   try{
     var nextUpdateField = source.next_update ? source.next_update : source.next_status;}
@@ -63,6 +65,75 @@ const SourceForm = ({ isEditMode, source }) => {
   const [formData, setFormData] = useState(initialFormData);
   const [showForm, setShowForm] = useState(true); // Set to true initially to show the modal for testing
 
+  
+  useEffect(() => {
+    socket.onopen = () => {
+      console.log('WebSocket connection opened');
+    };
+
+    socket.onmessage = (event) => {
+      const message = JSON.parse(event.data);
+      console.log('WebSocket message received:', message);
+      // Handle response here (e.g., show a success message or redirect)
+      if (message.status === 'success') {
+        setShowForm(false);
+        window.location.reload();
+      }
+    };
+
+    socket.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+
+    socket.onclose = () => {
+      //console.log('WebSocket connection closed');
+      new WebSocket(ws);
+    };
+
+    return () => {
+      socket.close();
+    };
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleFileChange = (e) => {
+    setFormData({ ...formData, data_upload: e.target.files[0] });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formPayload = new FormData();
+    Object.keys(formData).forEach((key) => {
+        if (formData[key] !== null) {
+            formPayload.append(key, formData[key]);
+            console.log(key, formData[key]);
+        }
+    });
+
+    const payload = {
+      action: isEditMode ? 'update_source' : 'add_source',
+      source_id: source.id,
+      formData: Object.fromEntries(formPayload),
+    };
+
+    console.log(formPayload)
+
+    socket.send(JSON.stringify(payload));
+    setShowForm(false);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+    //window.location.reload();
+  };
+
+
+  /*
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -78,6 +149,7 @@ const SourceForm = ({ isEditMode, source }) => {
   };
   */
 
+  /*
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -108,6 +180,9 @@ const SourceForm = ({ isEditMode, source }) => {
     setShowForm(false);
     window.location.reload();
   };
+
+  */
+  
 
   return (
     <>

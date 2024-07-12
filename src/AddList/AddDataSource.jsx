@@ -11,25 +11,6 @@ function AddedSource(source) {
     // set it false and use effect to change the value whenever there is a change in source.status column
     const [clickVI, setClickVI] = useState(false);
 
-    /*
-    // sets inactive - true and active - false
-    useEffect(() => {
-        setClickVI(source.status === 'inactive'); // Set initial state based on source status
-    }, [source.status]);
-
-    const handleActivation = async () => {
-        try {
-            // If true activate else, deactivate.
-            const action = clickVI ? 'activate' : 'deactivate';
-            await axiosInstance.put(`/${action}-source/${source.id}/`);
-            setClickVI(!clickVI); // Update state after API call
-            console.log(!clickVI)
-        } catch (error) {
-            console.error(`Error ${clickVI ? 'deactivating' : 'activating'} source:`, error);
-        }
-    };
-    */
-
     // Initialize WebSocketService for the path
     const wsUrl = 'ws://localhost:8000/ws/data_source_activation/';
     const WebSocketInstance = useRef(new WebSocketService()).current;
@@ -58,6 +39,8 @@ function AddedSource(source) {
         setClickVI(!clickVI); // Update state optimistically
         console.log(!clickVI);
     };
+
+    console.log(source)
 
     let buttonBgColor;
     if (source.datadelivery_status === 'awaiting') {buttonBgColor = 'bg-orange-500'; } 
