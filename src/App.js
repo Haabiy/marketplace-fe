@@ -13,18 +13,18 @@ import DataLibraryTest from './WebSocket/Test.jsx';
 function App() {
   return (
     <AuthProvider>
-    <Router>
-    <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/list-source" element={<ListSource />} /> {/* Route for ListSource */}
-        <Route path="/data-lib" element={<DataLibrary />} /> {/* Route for ListSource */}
-        <Route path="/test" element={<DataLibraryTest />} /> {/* Route for ListSource */}
-        <Route path="/main" element={<Sidebar />} /> {/* Route for ListSource */}
-    </Routes>
-</Router>
-</AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/list-source" element={<ListSource />} />
+          <Route path="/data-lib" element={<DataLibrary />} />
+          <Route path="/test" element={<DataLibraryTest />} />
+          <Route path="/main" element={<Sidebar />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
