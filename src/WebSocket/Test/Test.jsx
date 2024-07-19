@@ -1,32 +1,15 @@
-import DataUpdateStatus from '../Home/Homepage.jsx';
+import DataUpdateStatus from '../../Home/Homepage.jsx';
 import React, {useState, useEffect} from 'react';
-import NetworkError from '../Error/NetworkError.jsx';
-import WebSocketService from '../WebSocket/Websocket.jsx'; 
-import ListSource from '../AddList/ListSource.jsx';
-import Testclass from './TestSocket.jsx';
+import NetworkError from '../../Error/NetworkError.jsx';
+import axiosInstance from '../../Auth/axiosInstance.jsx';
+import WebSocketInstance from '../Websocket.jsx';
+import WebSocketService from '../Websocket.jsx'; 
+import ListSource from '../../AddList/ListSource.jsx';
 
-function Sample(){
+function DataLibraryTest(){
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  
-  const path = 'ws://localhost:8000/ws/data_library/'
-  const x = new Testclass()
 
-  x.connect(path).then((data) => {
-    console.log('data received: ', data);
-}).catch((error) => {
-    console.error('WebSocket error:', error);
-});
-
-/*/
-  x.getData(path).then((data) => {
-    console.log('Received data:', data);
-}).catch((error) => {
-    console.error('Error receiving data:', error);
-});
-/*
-
-  /*
   const wsUrl = 'ws://localhost:8000/ws/data_library/'
   const WebSocketInstance = new WebSocketService();
 
@@ -42,7 +25,6 @@ function Sample(){
     };
   }, [wsUrl]);
 
-  */
 
 
   if (error) {
@@ -82,4 +64,4 @@ function Sample(){
     );
 }
 
-export default Sample;
+export default DataLibraryTest;

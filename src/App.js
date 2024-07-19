@@ -8,8 +8,8 @@ import { AuthProvider } from './Auth/AuthWrapper.jsx';
 import Sidebar from './SideBar.jsx';
 import RegisterPage from './Auth/Register.jsx';
 import DataLibrary from './Home/DataLibrary.jsx';
-import DataLibraryTest from './WebSocket/Test.jsx';
-import Sample from './WebSocket/Sample.jsx';
+import DataLibraryTest from './WebSocket/Test/Test.jsx';
+import Sample from './WebSocket/Test/Sample.jsx';
 
 function App() {
   return (
