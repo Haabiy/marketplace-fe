@@ -23,6 +23,8 @@ class WebSocketService {
 
     socketNewMessage(data) {
         const parsedData = JSON.parse(data);
+        //console.log('parsedData:', parsedData.data)
+        //console.log('data:', data['data'])
         if (this.callbacks['data']) {
             this.callbacks['data'](parsedData);
         }
