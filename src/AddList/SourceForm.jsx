@@ -13,7 +13,6 @@ const SourceForm = ({ isEditMode, source }) => {
     var nextUpdateField = source.next_update ? source.next_update : source.next_status;}
   catch (error) {
       console.error('next_update error:', error);
-      // Optionally handle error, e.g., show an error message
   }
   const initialFormData = isEditMode
   ? {
@@ -35,10 +34,10 @@ const SourceForm = ({ isEditMode, source }) => {
       country: '',
       data_vendor: '',
       panel: '',
-      panel_group: '',
+      panel_group: 'DKM',
       scope_of_subscription: '',
       data_type: '',
-      granularity: '',
+      granularity: 'National',
       end_date: '',
       current_update: '',
       next_update: '',
@@ -63,8 +62,7 @@ const SourceForm = ({ isEditMode, source }) => {
   */
 
   const [formData, setFormData] = useState(initialFormData);
-  const [showForm, setShowForm] = useState(true); // Set to true initially to show the modal for testing
-
+  const [showForm, setShowForm] = useState(true); 
   
   useEffect(() => {
     socket.onopen = () => {
@@ -117,13 +115,16 @@ const SourceForm = ({ isEditMode, source }) => {
 
     const payload = {
       action: isEditMode ? 'update_source' : 'add_source',
-      source_id: source.id,
       formData: Object.fromEntries(formPayload),
     };
 
-    console.log(formPayload)
+    if (isEditMode && source && source.id) {
+      payload.source_id = source.id;
+    }
 
-    socket.send(JSON.stringify(payload));
+    if(socket){
+      socket.send(JSON.stringify(payload));
+    }
     setShowForm(false);
   };
 

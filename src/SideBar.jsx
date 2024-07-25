@@ -135,7 +135,7 @@ const Sidebar = () => {
         aria-describedby="modal-modal-description"
         className="flex justify-center items-center"
       >
-        <Box className="bg-white p-6 rounded-md shadow-md">
+        <Box>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             <SourceForm />
           </Typography>
