@@ -11,6 +11,7 @@ import johnson from './Assets/Johnson_and_Johnson_Logo.svg'; // Replace with the
 import DataLibrary from './Home/DataLibrary.jsx';
 import SourceForm from './AddList/SourceForm.jsx';
 import ListSource from './AddList/ListSource.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +63,7 @@ const Sidebar = () => {
           </div>
         </div>
         <nav className="mt-10">
-          <a href="/" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
+          <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
             Homepage
           </a>
           <a href="/main" className="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">
@@ -103,7 +104,7 @@ const Sidebar = () => {
         {!isOpen && (
           <button
             onClick={toggleSidebar}
-            className="fixed top-4 left-4 bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none z-20"
+            className="fixed top-4 left-4 bg-slate-700 text-white px-4 py-2 rounded-md focus:outline-none z-20"
           >
             <svg
               className="w-6 h-6"
@@ -131,12 +132,10 @@ const Sidebar = () => {
       <Modal
         open={modalOpen}
         onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
         className="flex justify-center items-center"
       >
         <Box>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography sx={{ mt: 2 }}>
             <SourceForm />
           </Typography>
         </Box>
