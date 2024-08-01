@@ -1,8 +1,6 @@
 import DataUpdateStatus from '../../Home/Homepage.jsx';
 import React, {useState, useEffect} from 'react';
 import NetworkError from '../../Error/NetworkError.jsx';
-import axiosInstance from '../../Auth/axiosInstance.jsx';
-import WebSocketInstance from '../Websocket.jsx';
 import WebSocketService from '../Websocket.jsx'; 
 import ListSource from '../../AddList/ListSource.jsx';
 

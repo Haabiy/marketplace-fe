@@ -1,7 +1,6 @@
 import DataUpdateStatus from '../../Home/Homepage.jsx';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import NetworkError from '../../Error/NetworkError.jsx';
-import WebSocketService from '../Websocket.jsx'; 
 import ListSource from '../../AddList/ListSource.jsx';
 import Testclass from './TestSocket.jsx';
 

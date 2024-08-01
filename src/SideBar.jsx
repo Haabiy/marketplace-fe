@@ -11,6 +11,7 @@ import johnson from './Assets/Johnson_and_Johnson_Logo.svg'; // Replace with the
 import DataLibrary from './Home/DataLibrary.jsx';
 import SourceForm from './AddList/SourceForm.jsx';
 import ListSource from './AddList/ListSource.jsx';
+import SourceFilter from './AddList/SourceFilter.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -125,6 +126,7 @@ const Sidebar = () => {
         <div className="mt-10">
           <DataLibrary />
           <ListSource/>
+          <SourceFilter/>
         </div>
       </div>
 

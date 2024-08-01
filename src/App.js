@@ -10,6 +10,7 @@ import RegisterPage from './Auth/Register.jsx';
 import DataLibrary from './Home/DataLibrary.jsx';
 import DataLibraryTest from './WebSocket/Test/Test.jsx';
 import Sample from './WebSocket/Test/Sample.jsx';
+import SourceFilter from './AddList/SourceFilter.jsx';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path="/data-lib" element={<DataLibrary />} />
           <Route path="/test" element={<DataLibraryTest />} />
           <Route path="/main" element={<Sidebar />} />
-          <Route path="/sample" element={<Sample />} />
+          <Route path="/filter" element={<SourceFilter />} />
         </Routes>
       </Router>
     </AuthProvider>

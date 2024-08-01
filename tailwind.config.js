@@ -23,12 +23,12 @@ module.exports = {
         'h-extra' : '28rem'
       },
       screens:{
-        ssm:'0px',
-        sm: '480px',
-        md: '768px',
-        lg: '976px',
-        xl: '1440px', // Mac M1
-        xxl: '1920px' 
+        ssm :'0px',
+        sm : '480px',
+        md : '768px',
+        lg : '976px',
+        xl : '1440px', // Mac M1
+        xxl : '1920px' 
       },
       margin:{
         smxtra : '20rem',
@@ -37,8 +37,16 @@ module.exports = {
         xlxtra : '28rem',
         xxlxtra : '40rem',
 
-        eye:'15.5rem',
-        pencil: '0.8rem',
+        sourcegap: '8rem',
+
+        eye :'15.5rem',
+        pencil : '0.8rem',
+        
+        smhbar : '20rem',
+        mdhbar : '78rem',
+        lghbar : '51rem',
+        xlhbar : '34rem',
+        xxlhbar: '26.5rem',
       },
     },
   },
