@@ -42,10 +42,10 @@ module.exports = {
         eye :'15.5rem',
         pencil : '0.8rem',
         
-        smhbar : '20rem',
-        mdhbar : '78rem',
-        lghbar : '51rem',
-        xlhbar : '34rem',
+        smhbar : '141rem',
+        mdhbar : '57rem',
+        lghbar : '32rem',
+        xlhbar : '34rem', // Mac M1
         xxlhbar: '26.5rem',
       },
     },
