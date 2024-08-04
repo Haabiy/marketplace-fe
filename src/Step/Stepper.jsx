@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import WebSocketService from '../WebSocket/Websocket';
+import STPDashboard from './StepDasboard';
 
 const steps = ['Collection', 'Cleaning', 'QC', 'Consolidation', 'Referencing', 'Recoding', 'Transcoding'];
 
@@ -83,6 +84,7 @@ const HorizontalStepper = () => {
   };
 
   return (
+    <>
     <div className="w-full py-4">
       {isMobile ? (
         <div className="flex flex-wrap justify-center gap-4 mb-4">
@@ -110,6 +112,8 @@ const HorizontalStepper = () => {
         </button>
       </div>
     </div>
+    <STPDashboard/>
+    </>
   );
 };
 

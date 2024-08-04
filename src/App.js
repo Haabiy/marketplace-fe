@@ -26,7 +26,7 @@ function App() {
           <Route path="/test" element={<DataLibraryTest />} />
           <Route path="/main" element={<Sidebar />} />
           <Route path="/filter" element={<SourceFilter />} />
-          <Route path="/step" element={<HorizontalStepper />} />
+          <Route path="/step/:id" element={<HorizontalStepper />} />
         </Routes>
       </Router>
     </AuthProvider>
