@@ -11,7 +11,7 @@ import DataLibrary from './Home/DataLibrary.jsx';
 import DataLibraryTest from './WebSocket/Test/Test.jsx';
 import Sample from './WebSocket/Test/Sample.jsx';
 import SourceFilter from './AddList/SourceFilter.jsx';
-import ButtonStepper from './WebSocket/Step/Stepper.jsx';
+import HorizontalStepper from './Step/Stepper.jsx';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route path="/test" element={<DataLibraryTest />} />
           <Route path="/main" element={<Sidebar />} />
           <Route path="/filter" element={<SourceFilter />} />
-          <Route path="/step" element={<ButtonStepper />} />
+          <Route path="/step" element={<HorizontalStepper />} />
         </Routes>
       </Router>
     </AuthProvider>
