@@ -85,6 +85,7 @@ const HorizontalStepper = () => {
 
   return (
     <>
+    <STPDashboard/>
     <div className="w-full py-4">
       {isMobile ? (
         <div className="flex flex-wrap justify-center gap-4 mb-4">
@@ -112,7 +113,6 @@ const HorizontalStepper = () => {
         </button>
       </div>
     </div>
-    <STPDashboard/>
     </>
   );
 };
