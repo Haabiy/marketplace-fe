@@ -65,7 +65,7 @@ function AddedSource(source) {
         }};
     
     return (
-        <div onClick={!editMode ? sourceDetail : undefined}>
+        <div onClick={!editMode ? sourceDetail : undefined} className='cursor-pointer'>
         <div className="flex justify-center items-start min-h-screen md:justify-start md:items-center -mb-smxtra sm:-mb-smxtra md:ml-12 md:-mb-mdxtra lg:-mb-lgxtra xl:-mb-xlxtra xxl:-mb-xxlxtra">
             <div className="bg-slate-100 flex flex-col h-72 w-80 mt-32 rounded-xl shadow-lg p-6 hover:bg-slate-200 hover:shadow-xl transition-all duration-100">
             {/* Edit Button */}

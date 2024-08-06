@@ -43,7 +43,7 @@ const STPDashboard = (source) => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8">
-          <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden transition-all duration-300 hover:shadow-3xl">
+          <div className="max-w-6xl mx-auto bg-white rounded-xl  overflow-hidden transition-all duration-300 hover:shadow-3xl">
             <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-8 text-white relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-y-6"></div>
               <h1 className="text-4xl font-bold relative z-10">Data Source Dashboard</h1>
