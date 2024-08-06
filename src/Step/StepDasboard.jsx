@@ -1,32 +1,45 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { useParams } from 'react-router-dom';
-import Details from './steps';
 import WebSocketService from '../WebSocket/Websocket';
 
 const STPDashboard = (source) => {
-    const { id } = useParams();
-    const data = Details[0].data; // Access the data object from the array
+  const { id } = useParams();
+  const [data, setData] = useState({});
+  const wsUrl = 'ws://localhost:8000/ws/filter_source/';
+  const WebSocketInstance = useRef(new WebSocketService()).current;
 
-    /*
-    const [data, setData] = useState([]);
-    const wsUrl = 'ws://localhost:8000/ws/filter_source/'
-    const WebSocketInstance = useRef(new WebSocketService()).current;
+  useEffect(() => {
+      WebSocketInstance.connect(wsUrl);
+      // Send the id to the WebSocket server once the connection is open
+      const sendFilterRequest = () => {
+          if (WebSocketInstance.socketRef.readyState === WebSocket.OPEN) {
+              WebSocketInstance.socketRef.send(JSON.stringify({
+                  action: 'filter_by_id',
+                  id: id,
+              }));
+          } else {
+              WebSocketInstance.socketRef.addEventListener('open', () => {
+                  WebSocketInstance.socketRef.send(JSON.stringify({
+                      action: 'filter_by_id',
+                      id: id,
+                  }));
+              });
+          }
+      };
 
-    useEffect(() => {
-        WebSocketInstance.connect(wsUrl);
-        console.log('connected')
-        // Send the id to the WebSocket server
-        WebSocketInstance.socketRef.send(JSON.stringify({
-            action: 'filter_by_id',
-            source_id: id,
-        }));
+      sendFilterRequest();
 
-        return () => {
-            WebSocketInstance.close();
-        };
-    }, [wsUrl, id]);
+      WebSocketInstance.addCallbacks((parsedData) => {
+        setData(parsedData.data);
+        console.log(parsedData.data)
+    });
 
-    */
+      return () => {
+          WebSocketInstance.close();
+      };
+  }, [wsUrl, id]);
+
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8">

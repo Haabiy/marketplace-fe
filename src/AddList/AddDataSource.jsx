@@ -17,7 +17,6 @@ function AddedSource(source) {
     const navigate = useNavigate()
     const sourceDetail = () => {
         navigate(`/step/${source.id}`); // Pass the id as a URL parameter
-        console.log(source.id)
     };
 
     // Initialize WebSocketService for the path
