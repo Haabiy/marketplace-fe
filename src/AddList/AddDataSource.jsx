@@ -7,7 +7,6 @@ import axiosInstance from '../Auth/axiosInstance';
 import WebSocketService from '../WebSocket/Websocket';
 import SourceFilter from './SourceFilter';
 import { useNavigate } from 'react-router-dom';
-import STPDashboard from '../Step/StepDasboard';
 
 function AddedSource(source) {
     const [editMode, setEditMode] = useState(false);

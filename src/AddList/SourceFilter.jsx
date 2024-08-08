@@ -10,7 +10,7 @@ function SourceFilter() {
     };
 
     return (
-        <div className="absolute hidden sm:block sm:-mt-smhbar sm:left-36 md:-mt-mdhbar md:left-36 lg:-mt-lghbar lg:left-12 xl:-mt-xlhbar xl:left-12 xxl:-mt-xxlhbar xxl:left-72 bg-white shadow-sm rounded-lg p-6">
+        <div className="relative hidden sm:block sm:-mt-smhbar sm:left-0 md:-mt-mdhbar md:left-0 lg:-mt-lghbar lg:left-0 xl:-mt-xlhbar xl:-ml-xlleft xxl:-mt-xxlhbar xxl:left-72 bg-white shadow-sm rounded-lg p-6">
             <div className="flex flex-row gap-8 items-center justify-center">
                 <div className="flex flex-col items-center">
                     <label className="text-sm font-semibold text-gray-700 mb-2">Country</label>

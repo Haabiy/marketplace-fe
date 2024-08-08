@@ -5,7 +5,7 @@ import { XIcon } from '@heroicons/react/outline';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-const SourceForm = ({ isEditMode, source }) => {
+const SourceForm = ({ isEditMode, source, onClose }) => {
   console.log('source2', source)
   const ws = 'ws://localhost:8000/ws/source/'
   const socket = new WebSocket(ws);
@@ -131,6 +131,8 @@ const SourceForm = ({ isEditMode, source }) => {
 
   const closeForm = () => {
     setShowForm(false);
+    if (onClose) onClose(); // Close the modal when XIcon is clicked
+
   };
   
   return (

@@ -38,13 +38,14 @@ module.exports = {
         xxlxtra : '40rem',
 
         sourcegap: '8rem',
+        xlleft:'60rem',
 
         eye :'15.5rem',
         pencil : '0.8rem',
         
-        smhbar : '141rem',
-        mdhbar : '57rem',
-        lghbar : '32rem',
+        smhbar : '164rem',
+        mdhbar : '78.5rem',
+        lghbar : '51rem',
         xlhbar : '34rem', // Mac M1
         xxlhbar: '26.5rem',
       },

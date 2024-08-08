@@ -138,7 +138,7 @@ const Sidebar = () => {
       >
         <Box>
           <Typography sx={{ mt: 2 }}>
-            <SourceForm />
+            <SourceForm onClose={handleCloseModal}/>
           </Typography>
         </Box>
       </Modal>
