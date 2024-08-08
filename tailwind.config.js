@@ -43,6 +43,7 @@ module.exports = {
         eye :'15.5rem',
         pencil : '0.8rem',
         
+        // This was for filters, but for now filters have been removed
         smhbar : '164rem',
         mdhbar : '78.5rem',
         lghbar : '51rem',
