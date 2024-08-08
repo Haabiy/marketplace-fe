@@ -37,7 +37,7 @@ module.exports = {
         xlxtra : '28rem',
         xxlxtra : '40rem',
 
-        sourcegap: '8rem',
+        sourcegap: '16rem',
         xlleft:'60rem',
 
         eye :'15.5rem',

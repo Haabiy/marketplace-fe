@@ -28,7 +28,7 @@ const ListSource = () => {
   
   return (
         <>
-        <div className='flex justify-center items-center min-h-16 sm:mt-32 md:-mt-0 lg:-mt-42 xl:-mr-0 lg:-mr-96 xxl:-mt-sourcegap'>
+        <div className='flex justify-center items-center min-h-16 sm:mt-42 md:-mt-24 lg:-mt-42 xl:-mr-0 xl:-mt-36 lg:-mr-96 xxl:-mt-sourcegap'>
         <div className='grid grid-cols-1 md:grid md:grid-cols-2 lg:grid lg:grid-cols-3 xl:grid xl:grid-cols-4 xl:relative xl:right-5 xxl:grid xxl:grid-cols-5'>
         {data.map((x, index) => (
             <AddedSource
