@@ -126,7 +126,6 @@ const Sidebar = () => {
         <div className="mt-10">
           <DataLibrary />
           <ListSource/>
-          <SourceFilter/>
         </div>
       </div>
 

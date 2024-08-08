@@ -127,11 +127,12 @@ const SourceForm = ({ isEditMode, source, onClose }) => {
       socket.send(JSON.stringify(payload));
     }
     setShowForm(false);
+    if (onClose) onClose(); // Close the modal when XIcon is clicked
   };
 
   const closeForm = () => {
     setShowForm(false);
-    if (onClose) onClose(); // Close the modal when XIcon is clicked
+    //if (onClose) onClose(); // Close the modal when XIcon is clicked
 
   };
   
