@@ -132,7 +132,7 @@ const SourceForm = ({ isEditMode, source, onClose }) => {
 
   const closeForm = () => {
     setShowForm(false);
-    //if (onClose) onClose(); // Close the modal when XIcon is clicked
+    if (onClose) onClose(); // Close the modal when XIcon is clicked
 
   };
   
