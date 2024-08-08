@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 const SourceForm = ({ isEditMode, source, onClose }) => {
-  console.log('source2', source)
+
   const ws = 'ws://localhost:8000/ws/source/'
   const socket = new WebSocket(ws);
   // If there is a date filled out then, make it appear while editing the form otherwise it is an empty data so, use next_status.
