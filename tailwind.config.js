@@ -31,10 +31,10 @@ module.exports = {
         xxl : '1920px' 
       },
       margin:{
-        smxtra : '20rem',
-        mdxtra : '22rem',
-        lgxtra : '24rem',
-        xlxtra : '28rem',
+        smxtra : '17rem',
+        mdxtra : '16rem',
+        lgxtra : '16rem',
+        xlxtra : '23rem',
         xxlxtra : '40rem',
 
         sourcegap: '16rem',
