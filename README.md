@@ -1,9 +1,6 @@
 # 🚀 Marketplace Frontend (React.js)
 
-<video width="100%" controls>
-  <source src="./src/Assets/EMRRunner.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+View the UI : [ENIM Marketplace](https://www.abiydema.com/#presentation)
 
 ## 📊 Overview
 
