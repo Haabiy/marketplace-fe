@@ -6,6 +6,12 @@ View the UI : [ENIM Marketplace](https://www.abiydema.com/#presentation)
 
 This project serves as the frontend application for [marketplace-be](https://github.com/Haabiy/marketplace-be), a robust marketplace platform. Built with React.js, it ensures seamless compatibility with the marketplace-be backend API.
 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
+---
+
 > 🔗 **Important:** Always use matching version release tags (e.g., v0.0.1) for both marketplace-fe (frontend) and marketplace-be (backend).
 
 ## 🛠 Setup
