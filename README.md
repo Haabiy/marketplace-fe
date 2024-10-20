@@ -1,10 +1,5 @@
 # 🚀 Marketplace Frontend (React.js)
 
-<video width="100%" controls>
-  <source src="./src/Assets/EMRRunner.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 ## 📊 Overview
 
 This project serves as the frontend application for [marketplace-be](https://github.com/Haabiy/marketplace-be), a robust marketplace platform. Built with React.js, it ensures seamless compatibility with the marketplace-be backend API.
