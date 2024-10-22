@@ -36,7 +36,7 @@ This project serves as the frontend application for [marketplace-be](https://git
 
 ## 📦 Dependencies
 
-Our application leverages the power of modern web technologies:
+The application leverages the power of modern web technologies:
 
 - ⚛️ **React.js**: A powerful library for building user interfaces
 - 🌐 **Axios**: Promise-based HTTP client for making API requests
@@ -47,7 +47,5 @@ Our application leverages the power of modern web technologies:
 - 🖥 Responsive design for seamless user experience across devices
 - 🔄 Real-time updates using WebSocket connections
 - 🎨 Modern and intuitive user interface
-- 🔍 Advanced search and filtering capabilities
-- 📊 Interactive data visualization components
 
 ----------
